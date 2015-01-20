@@ -20,12 +20,39 @@ namespace Mathgician
             } else if ("Fibonacci" == desiredMaths) {
                 PrintFibonacciSequence();
             }
+            else if ("Primes" == desiredMaths)
+            {
+                PrintPrimes();
+            }
             else
             {
                 Console.WriteLine("Well, actually... I Lied...");
             }
             Console.WriteLine("Press any key to exit");
             Console.ReadKey();
+        }
+
+        private static void PrintPrimes()
+        {
+            var array = new[] { 2 };
+            var list = new LinkedList<int>(array);
+            int checkNum = 1;
+            while (true) 
+            { 
+                foreach (int integer in list)
+                {
+                    if (checkNum % integer == 0)
+                    {
+                        checkNum += 2;
+                    }
+                    else
+                    {
+                        Console.WriteLine(checkNum);
+                        list.AddLast(checkNum);
+                        checkNum += 2;
+                    }
+                }
+            }
         }
 
         private static void PrintFibonacciSequence()
